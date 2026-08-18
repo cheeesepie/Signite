@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ฝึกทำ — Signite</title>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="practice-page">
+
+  <a href="vocabset.html" class="btn-back" title="กลับหน้าชุดคำศัพท์">&#8592;</a>
+
+
+  <main class="pr-main">
+
+    <div class="panel-left">
+
+      <div class="camera-wrap">
+        <div class="corner corner--tl"></div>
+        <div class="corner corner--tr"></div>
+        <div class="corner corner--bl"></div>
+        <div class="corner corner--br"></div>
+
+        <video id="video" playsinline autoplay muted></video>
+        <canvas id="canvas"></canvas>
+
+        <div id="gesture-label"></div>
+        <div id="dynInstruction" class="dyn-instruction"></div>
+        <div id="dynPill" class="dyn-pill"></div>
+
+        <div class="success-flash" id="successFlash"></div>
+
+        <div class="camera-placeholder" id="placeholder">
+          <div class="cam-icon-wrap">📷</div>
+          <div class="placeholder-text">กดปุ่ม "ฝึกทำ" เพื่อเปิดกล้อง</div>
+        </div>
+
+        <div class="status-bar">
+          <div class="status-dot" id="statusDot"></div>
+          <span id="statusText">รอการเชื่อมต่อ</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-learn" id="btnLearn" onclick="openLearnModal()">เรียนรู้</button>
+        <button class="btn-practice" id="btnPractice" onclick="toggleCamera()">ฝึกทำ</button>
+        <button class="btn-next" id="btnNext" onclick="skipToNext()" disabled>ไปท่าต่อไป →</button>
+      </div>
+
+    </div>
+
+    <div class="panel-right">
+      <div class="checklist-header">รายการท่าทาง</div>
+      <div class="checklist-body">
+        <div id="checklist"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="modal-overlay" id="learnModal" onclick="closeLearnModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeLearnModalBtn()">✕</button>
+      <h3 id="modalTitle">สาธิตท่า</h3>
+      <div class="modal-video-wrap" id="modalVideoWrap"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="JS/app.js"></script>
+</body>
+</html>

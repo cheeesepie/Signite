@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mitr", sans-serif;
+}
+
+header {
+    height: 100vh;
+    background: url('IMG/home_bg.svg') no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+    container-name: home-container;
+}
+
+.hero {
+  container: home-container / inline-size;
+
+  min-height: 100dvh;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3dvh, 36px);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0; /* ลบ padding-top เดิม */
+}
+
+.logo img {
+  display: block;
+  width: clamp(220px, 72cqw, 700px);
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin: 0;
+  padding: 0 24px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  flex: none; /* สำคัญ: ลบ flex: 1 เดิม */
+}
+
+.description p {
+  margin: 0;
+  font-size: 34px;
+  color: #000;
+}
+
+.homepage-btn {
+  margin-top: 32px;
+  font-size: 25px;
+}
+
+/* ── Container Query: HOME (header acts as home-container) ── */
+@container home-container (max-width: 479px) {
+  .logo img {
+    width: min(80cqw, 340px);
+    height: auto; /* ไม่ใช้ height: 130px */
+  }
+
+  .description p {
+    font-size: 22px;
+  }
+
+  .homepage-btn {
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .homepage-btn .vocabset {
+    display: inline-block;
+    width: auto;
+    padding: 0.7rem 1rem;
+  }
+}
+
+.vocabset {
+    background: #FF89E9;
+    color: white;
+    text-decoration: none;
+    padding: .5rem 3.2rem;
+    border-radius: 90px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 3px;
+}
+
+.vocabset:hover {
+    background: #FF35DA;
+}
